@@ -8,7 +8,7 @@ class App(customtkinter.CTk):
     def __init__(self):
         super().__init__()
 
-        self.geometry("600x600")
+        self.geometry("600x800")
         self.title("YouTool")
         self.logo = customtkinter.CTkImage(dark_image=Image.open('./LOGO.png'), size=(600, 150))
         self.logo_lable = customtkinter.CTkLabel(self, text="", image=self.logo)
@@ -16,7 +16,6 @@ class App(customtkinter.CTk):
         self.resizable(False, False)
         self.grid_columnconfigure(1, weight=4)
         self.grid_columnconfigure(2, weight=4)
-        # self.grid_columnconfigure(3, weight=4)
 
         self.entry_1 = customtkinter.CTkEntry(self)
         self.entry_1.grid(row=1, column=0, padx=20, pady=20, sticky="ew", columnspan=4)
