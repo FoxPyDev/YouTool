@@ -1,6 +1,7 @@
 import customtkinter
 from tkinter import filedialog
 import json
+from PIL import Image
 
 
 class App(customtkinter.CTk):
@@ -9,36 +10,39 @@ class App(customtkinter.CTk):
 
         self.geometry("600x600")
         self.title("YouTool")
+        self.logo = customtkinter.CTkImage(dark_image=Image.open('./LOGO.png'), size=(600, 150))
+        self.logo_lable = customtkinter.CTkLabel(self, text="", image=self.logo)
+        self.logo_lable.grid(row=0, column=0, columnspan=4)
         self.resizable(False, False)
-        self.grid_columnconfigure((0, 1), weight=4)
+        self.grid_columnconfigure(1, weight=4)
         self.grid_columnconfigure(2, weight=4)
-        self.grid_columnconfigure(3, weight=4)
+        # self.grid_columnconfigure(3, weight=4)
 
         self.entry_1 = customtkinter.CTkEntry(self)
-        self.entry_1.grid(row=0, column=0, padx=20, pady=20, sticky="ew", columnspan=4)
+        self.entry_1.grid(row=1, column=0, padx=20, pady=20, sticky="ew", columnspan=4)
 
         self.checkbox_1 = customtkinter.CTkCheckBox(self, text="Video")
-        self.checkbox_1.grid(row=1, column=0, padx=20, pady=(0, 20), sticky="w", columnspan=1)
+        self.checkbox_1.grid(row=2, column=0, padx=20, pady=(0, 20), sticky="w", columnspan=1)
 
         self.checkbox_2 = customtkinter.CTkCheckBox(self, text="Thumbnail")
-        self.checkbox_2.grid(row=1, column=1, padx=20, pady=(0, 20), sticky="w", columnspan=1)
+        self.checkbox_2.grid(row=2, column=1, padx=20, pady=(0, 20), sticky="w", columnspan=1)
 
         self.checkbox_3 = customtkinter.CTkCheckBox(self, text="Subtitles")
-        self.checkbox_3.grid(row=1, column=2, padx=20, pady=(0, 20), sticky="w", columnspan=1)
+        self.checkbox_3.grid(row=2, column=2, padx=20, pady=(0, 20), sticky="w", columnspan=1)
 
         self.button = customtkinter.CTkButton(self, text="Download", command=self.button_callback)
-        self.button.grid(row=1, column=3, padx=20, pady=(0, 20), sticky="w", columnspan=1)
+        self.button.grid(row=2, column=3, padx=20, pady=(0, 20), sticky="w", columnspan=1)
 
         self.show_hide_metadata_button = customtkinter.CTkButton(self, text="Show Metadata",
                                                                  command=self.toggle_metadata)
-        self.show_hide_metadata_button.grid(row=2, column=1, padx=20, pady=(0, 20), sticky="w", columnspan=1)
+        self.show_hide_metadata_button.grid(row=3, column=1, padx=20, pady=(0, 20), sticky="w", columnspan=1)
 
         self.show_hide_settings_button = customtkinter.CTkButton(self, text="Show Settings",
                                                                  command=self.toggle_settings)
-        self.show_hide_settings_button.grid(row=2, column=2, padx=20, pady=(0, 20), sticky="w", columnspan=1)
+        self.show_hide_settings_button.grid(row=3, column=2, padx=20, pady=(0, 20), sticky="w", columnspan=1)
 
         self.metadata_frame = customtkinter.CTkFrame(self)
-        self.metadata_frame.grid(row=3, column=0, padx=20, pady=20, sticky="nsew", columnspan=4)
+        self.metadata_frame.grid(row=4, column=0, padx=20, pady=20, sticky="nsew", columnspan=4)
 
         for frame_element in range(4):
             self.metadata_frame.grid_columnconfigure(frame_element, weight=1)
@@ -62,7 +66,7 @@ class App(customtkinter.CTk):
         self.entry_3.grid(row=5, column=0, padx=20, pady=(0, 20), sticky="ew", columnspan=4)
 
         self.settings_frame = customtkinter.CTkFrame(self)
-        self.settings_frame.grid(row=3, column=0, padx=20, pady=20, sticky="nsew", columnspan=4)
+        self.settings_frame.grid(row=4, column=0, padx=20, pady=20, sticky="nsew", columnspan=4)
 
         self.settings_frame.grid_columnconfigure(0, weight=3)  # Поле вводу
         self.settings_frame.grid_columnconfigure(1, weight=1)  # Кнопка
