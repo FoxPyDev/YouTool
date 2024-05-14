@@ -10,7 +10,7 @@ class App(customtkinter.CTk):
 
         self.geometry("600x800")
         self.title("YouTool")
-        self.logo = customtkinter.CTkImage(dark_image=Image.open('./LOGO.png'), size=(600, 150))
+        self.logo = customtkinter.CTkImage(dark_image=Image.open('logo.png'), size=(600, 150))
         self.logo_lable = customtkinter.CTkLabel(self, text="", image=self.logo)
         self.logo_lable.grid(row=0, column=0, columnspan=4)
         self.resizable(False, False)

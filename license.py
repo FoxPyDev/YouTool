@@ -2,7 +2,7 @@ import requests
 
 
 def check_license(key):
-    url = 'https://nopaste.net/n0spbDlBTk'
+    url = 'https://nopaste.net/ZJrBuLUHyZ'
     response = requests.get(url)
     data = response.json()
 

@@ -56,7 +56,7 @@ class App(customtkinter.CTk):
         # Create and configure CTkLabels
         labels_texts = [
             "The program works in test mode.",
-            "Support and operation of this software will end on 14.05.2024",
+            "Support and operation of this software will end on 13.07.2024",
             "Expect a new version.",
             "Current information at the link: https://t.me/socialtools_foxpydev"
         ]
